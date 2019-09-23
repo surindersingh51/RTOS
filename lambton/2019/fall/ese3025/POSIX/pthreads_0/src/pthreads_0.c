@@ -5,7 +5,7 @@
  Version     : 0.1
  Copyright   : (C) 2019 emad studio inc.
  Description : simple pthread example with two threads (including main thread)
- 	 	 	   in C, Ansi-style
+ 	 	 	   in C,  Ansi-style
  ================================================================================
  */
 
