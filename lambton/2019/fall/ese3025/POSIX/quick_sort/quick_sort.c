@@ -1,4 +1,5 @@
 
+/*half way done for it..soon will be completed*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
