@@ -21,6 +21,7 @@ void short_delay(int count)
 
 // This is the thread function that will execute when the thread is created
 //  it passes and receives data by void pointers
+
 void *threadFunction_1(void *value)
 {
 	int *x = (int *)value;    //cast the data passed to an int
