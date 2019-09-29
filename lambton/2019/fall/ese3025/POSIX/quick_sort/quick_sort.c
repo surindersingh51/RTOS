@@ -1,8 +1,3 @@
-
-
-/*half way done for it..soon will be completed*/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -13,27 +8,25 @@ struct array_para
 {
 	int max;
 	int min;
-
 	int arr[100];
-
-
 };
 
 /*
  * thread function sorts data set in its current set
  */
-void *quick_sort(int *struct_args)
+void *quick_sort(void *struct_args)
 {
-
 	struct array_para *args = (struct array_para *) struct_args;
-	//struct array_para arg1,arg2;
-	/*int max = args->max;
-	int min = args->min;
-	int a[size];
-	int a[size]=args->arr;*/
 	int size = sizeof(args->arr);
-	int min,max,a[size];
-	struct array_para *arg = {min,max,a[size]};
+	printf("%p",&size);
+	int min = args->min;
+	int max = args->max;
+	int a[size];
+	for(int i=0;i<size;i++)
+	{
+		a[i]=args->arr[i];
+	}
+
 
 	int pivot= min;
 	int temp=0;
@@ -44,7 +37,7 @@ void *quick_sort(int *struct_args)
 
 if(i<j)
 {
-		while(a[i]<=a[pivot]&&a<max)
+		while(a[i]<=a[pivot]&& i < max)
 			i++;
 		while(a[j]>a[pivot])
 			j--;
@@ -59,31 +52,50 @@ if(i<j)
 	a[pivot]=a[j];
 	a[j]=temp;
 
+	struct array_para arg1,arg2;
 
-	struct array_para arg1 = {min,j-1,a[size]};
-	struct array_para arg2 = {j+1,max,a[size]};
-/*
+
+	int a[size];
+	for(int i=0;i<size;i++)
+	{
+		a[i]=args->arr[i];
+	}
+
 	arg1.min = min;
 	arg1.max = j-1;
-	arg1.arr= a[];
+	for(int i=0;i<size;i++)
+		{
+			arg1.arr[i]=a[i];
+		}
 
 	arg2.min = j+1;
 	arg2.max = max;
-	arg2.arr=a[];
-*/
+	for(int i=0;i<size;i++)
+			{
+				arg2.arr[i]=a[i];
+			}
 
-pthread_create(thread_2,NULL,*quick_sort,&arg1);
-pthread_create(thread_3,NULL,*quick_sort,&arg2);
+//	printf("%p  %p  %p  %p",&arg1.min,&arg1.max,&arg2.min,&arg2.max);
+
+if(pthread_create(&thread_2,NULL,*quick_sort,&arg1)!=0)
+	{
+	printf("thread 2 not created!! ");
+	return 0;
+	}
 pthread_join(thread_2,NULL);
+if(pthread_create(&thread_3,NULL,*quick_sort,&arg2)!=0)
+	{
+	printf("thread 3 not created");
+	return 0;
+	}
+
 pthread_join(thread_3,NULL);
 }
-return *a;
+return a;
 }
 
 int main()
 {
-
-	//struct array_para arg;
 
 	pthread_t thread;
 	int s=0; //variable for size of array
@@ -98,29 +110,27 @@ int main()
 		scanf("%d",&arr[i]);
 	}
 
-
-	/*strcpy(arg.arr,arr[s]);
-	//arg.arr = arr[s];
-	arg.max = s-1;
-	arg.min = 0;
-*/
-	struct array_para arg = {0,s-1,arr[s]};
-
+	struct array_para arg ;
+	arg.min=0;
+	arg.max=s-1;
+	for(int i=0;i<s;i++)
+			{
+				arg.arr[i]=arr[i];
+			}
+printf("1\n");
 	if(pthread_create(&thread,NULL,*quick_sort,&arg)!=0)
 	{
 	printf("Thread 1 not created!!");
-	return 0;
+	return 1;
 	}
-
-
-
+	printf("5\n");
+pthread_join(thread,NULL);
+//printf("10");
 	printf("Sorted Array: ");
 
 	for(int i=0;i<s;i++)
-			printf(" %d ",&arg.arr[i]);
+			printf(" %p ",&arg.arr[i]);
 
 
 	return 0;
 }
-
-
