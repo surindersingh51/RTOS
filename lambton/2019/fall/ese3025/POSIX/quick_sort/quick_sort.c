@@ -18,7 +18,6 @@ void *quick_sort(void *struct_args)
 {
 	struct array_para *args = (struct array_para *) struct_args;
 	int size = sizeof(args->arr);
-	printf("%p",&size);
 	int min = args->min;
 	int max = args->max;
 	int a[size];
@@ -75,8 +74,6 @@ if(i<j)
 				arg2.arr[i]=a[i];
 			}
 
-//	printf("%p  %p  %p  %p",&arg1.min,&arg1.max,&arg2.min,&arg2.max);
-
 if(pthread_create(&thread_2,NULL,*quick_sort,&arg1)!=0)
 	{
 	printf("thread 2 not created!! ");
@@ -88,7 +85,6 @@ if(pthread_create(&thread_3,NULL,*quick_sort,&arg2)!=0)
 	printf("thread 3 not created");
 	return 0;
 	}
-
 pthread_join(thread_3,NULL);
 }
 return a;
@@ -117,15 +113,15 @@ int main()
 			{
 				arg.arr[i]=arr[i];
 			}
-printf("1\n");
+
 	if(pthread_create(&thread,NULL,*quick_sort,&arg)!=0)
 	{
 	printf("Thread 1 not created!!");
 	return 1;
 	}
-	printf("5\n");
+
 pthread_join(thread,NULL);
-//printf("10");
+
 	printf("Sorted Array: ");
 
 	for(int i=0;i<s;i++)
