@@ -1,9 +1,3 @@
-/*
- * pthreads_2.c
- *
- *  Created on: Sep. 16, 2019
- *      Author: takis
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -110,17 +104,41 @@ int main()
 	pthread_t	thread_calc_1;	// our handle for the averaging thread
     pthread_t	thread_calc_2;	// our handle for the sorting thread
     int			set[MAXINTS]; 	// storage for our numbers
-
+   // int 		result[MAXINTS]; //storage for final array
 
     // initialize set to zero
     for (int i=0; i != MAXINTS; ++i)
     {
     	set[i]=0;
+    //	result[i]=0;
     }
 
-    // create threads
+    printf("Enter the number of elements to be sorted(Maximum 10)");
+    scanf("%d",&num_ints);
 
-    // main loop (get user input)
+    printf("Enter the elements of array: \n");
+    getdata(set,num_ints);
+    for(int i=0;i!=num_ints;++i)
+    {
+    	getdata(set,num_ints);
+    	//scanf("%d",&set[i]);
+    	printf("%d",&set[i]);
+    }
+
+pthread_create(&thread_calc_1,NULL,&avg_thread,&set);
+pthread_join(thread_calc_1,NULL);
+
+void* result;
+pthread_create(&thread_calc_2,NULL,&bubb_sort_thread,&set);
+pthread_join(thread_calc_2,&result);
+/*int arr[num_ints];
+
+for(int i=0;i!=num_ints;++i)
+{
+	arr[num_ints]=(int *)result[i];
+}*/
+disp_avg(average);
+disp_sorted((int *)result);
 
     done=1; // user has finished entering data
     return 0;
