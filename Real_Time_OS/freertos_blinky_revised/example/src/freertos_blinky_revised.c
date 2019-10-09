@@ -9,7 +9,7 @@
  * Software that is described herein is for illustrative purposes only
  * which provides customers with programming information regarding the
  * LPC products.  This software is supplied "AS IS" without any warranties of
- * any kind, and NXP Semiconductors and its licensor disclaim any and
+ * any kind, and NXP Semiconductors and its licenser disclaim any and
  * all warranties, express or implied, including all implied warranties of
  * merchantability, fitness for a particular purpose and non-infringement of
  * intellectual property rights.  NXP Semiconductors assumes no responsibility
@@ -51,48 +51,57 @@ static void prvSetupHardware(void)
 	SystemCoreClockUpdate();
 	Board_Init();
 
-	/* Initial LED0 state is off */
-	Board_LED_Set(0, true);
-	Board_LED_Set(1, true);
-	Board_LED_Set(2, true);
+	/* Initial LEDs state is off */
+	Board_LED_Set(0, false);
+	Board_LED_Set(1, false);
+	Board_LED_Set(2, false);
 }
 
 /* LED1 toggle thread */
 static void vLEDTask0(void *pvParameters) {
-	bool LedState = false;
+	//bool LedState = true;
 
 	while (1) {
-		Board_LED_Set(0, LedState);
-		LedState = (bool) !LedState;
-
+		Board_LED_Set(0, true);
+		vTaskDelay(configTICK_RATE_HZ);
+		//LedState = (bool) !LedState;
+		Board_LED_Set(0, false);
 		/* About a 3Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ / 6);
+		vTaskDelay(configTICK_RATE_HZ*2);
+
+
 	}
 }
 
 /* LED2 toggle thread */
 static void vLEDTask1(void *pvParameters) {
-	bool LedState = false;
-
+	//bool LedState = true;
+	vTaskDelay(1000);
 	while (1) {
-		Board_LED_Set(1, LedState);
-		LedState = (bool) !LedState;
+		Board_LED_Set(1, true);
+				vTaskDelay(configTICK_RATE_HZ);
+				//LedState = (bool) !LedState;
+				Board_LED_Set(1, false);
+				/* About a 7Hz on/off toggle rate */
+				vTaskDelay(configTICK_RATE_HZ*2);
 
-		/* About a 7Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ / 14);
+
 	}
 }
 
-/* LED2 toggle thread */
+/* LED3 toggle thread */
 static void vLEDTask2(void *pvParameters) {
-	bool LedState = false;
-
+//	bool LedState = true;
+	vTaskDelay(2000);
 	while (1) {
-		Board_LED_Set(2, LedState);
-		LedState = (bool) !LedState;
+		Board_LED_Set(2, true);
+				vTaskDelay(configTICK_RATE_HZ);
+				//LedState = (bool) !LedState;
+				Board_LED_Set(2, false);
+				/* About a 3Hz on/off toggle rate */
+				vTaskDelay(configTICK_RATE_HZ*2);
 
-		/* About a 7Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ / 22);
+
 	}
 }
 

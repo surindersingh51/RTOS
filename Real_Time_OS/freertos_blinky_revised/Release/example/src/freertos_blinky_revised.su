@@ -1,0 +1,4 @@
+freertos_blinky_revised.c:90:13:vLEDTask2	8	static
+freertos_blinky_revised.c:75:13:vLEDTask1	8	static
+freertos_blinky_revised.c:61:13:vLEDTask0	8	static
+freertos_blinky_revised.c:112:5:main	32	static
