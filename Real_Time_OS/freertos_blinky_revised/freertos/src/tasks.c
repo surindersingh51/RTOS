@@ -696,7 +696,7 @@ tskTCB * pxNewTCB;
 
 		vTaskSuspendAll();
 		{
-			/* Minor optimisation.  The tick count cannot change in this
+			/* Minor optimization.  The tick count cannot change in this
 			block. */
 			const portTickType xConstTickCount = xTickCount;
 
