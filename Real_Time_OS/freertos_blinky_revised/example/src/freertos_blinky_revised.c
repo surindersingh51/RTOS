@@ -1,33 +1,5 @@
-/*
- * @brief FreeRTOS Blinky example
- *
- * @note
- * Copyright(C) NXP Semiconductors, 2014
- * All rights reserved.
- *
- * @par
- * Software that is described herein is for illustrative purposes only
- * which provides customers with programming information regarding the
- * LPC products.  This software is supplied "AS IS" without any warranties of
- * any kind, and NXP Semiconductors and its licenser disclaim any and
- * all warranties, express or implied, including all implied warranties of
- * merchantability, fitness for a particular purpose and non-infringement of
- * intellectual property rights.  NXP Semiconductors assumes no responsibility
- * or liability for the use of the software, conveys no license or rights under any
- * patent, copyright, mask work right, or any other intellectual property rights in
- * or to any products. NXP Semiconductors reserves the right to make changes
- * in the software without notification. NXP Semiconductors also makes no
- * representation or warranty that such application will be suitable for the
- * specified use without further testing or modification.
- *
- * @par
- * Permission to use, copy, modify, and distribute this software and its
- * documentation is hereby granted, under NXP Semiconductors' and its
- * licensor's relevant copyrights in the software, without fee, provided that it
- * is used in conjunction with NXP Semiconductors microcontrollers.  This
- * copyright, permission, and disclaimer notice must appear in all copies of
- * this code.
- */
+/* @brief FreeRTOS Blinky example
+ A Simple Blinking Code with just using delays to alternatively blinking all 3 LEDs */
 
 #include "board.h"
 #include "FreeRTOS.h"
@@ -58,56 +30,45 @@ static void prvSetupHardware(void)
 }
 
 /* LED1 toggle thread */
-static void vLEDTask0(void *pvParameters) {
-	//bool LedState = true;
+static void vLEDTask0(void *pvParameters)
+{
+	while (1)
+	{
+		Board_LED_Set(0, true);				//turning Red LED ON
+		vTaskDelay(configTICK_RATE_HZ);		//Keeping LED ON for 1 second
 
-	while (1) {
-		Board_LED_Set(0, true);
-		vTaskDelay(configTICK_RATE_HZ);
-		//LedState = (bool) !LedState;
-		Board_LED_Set(0, false);
-		/* About a 3Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ*2);
-
-
+		Board_LED_Set(0, false);			//turning Red LED OFF
+		vTaskDelay(configTICK_RATE_HZ*5);	//Keeping LED OFF for 5 seconds
 	}
 }
 
 /* LED2 toggle thread */
-static void vLEDTask1(void *pvParameters) {
-	//bool LedState = true;
-	bool x=true;
-	while (1) {
+static void vLEDTask1(void *pvParameters)
+{
+	while (1)
+	{
+		vTaskDelay(configTICK_RATE_HZ*2);	//Keeping LED at its initial state(OFF state) for 1 second
 
-		if(x==true)
-			vTaskDelay(configTICK_RATE_HZ);
+		Board_LED_Set(1, true);				//turning Green LED ON
+		vTaskDelay(configTICK_RATE_HZ);		//Keeping LED ON for 1 second
 
-		x=false;
-
-		Board_LED_Set(1, true);
-				vTaskDelay(configTICK_RATE_HZ);
-				//LedState = (bool) !LedState;
-				Board_LED_Set(1, false);
-				/* About a 7Hz on/off toggle rate */
-				vTaskDelay(configTICK_RATE_HZ*2);
-
+		Board_LED_Set(1, false);			//Turning LED again to OFF state
+		vTaskDelay(configTICK_RATE_HZ*3);	//Keeping it OFF for 3 seconds
 	}
 }
 
 /* LED3 toggle thread */
-static void vLEDTask2(void *pvParameters) {
-//	bool LedState = true;
+static void vLEDTask2(void *pvParameters)
+{
+	while (1)
+	{
+		vTaskDelay(configTICK_RATE_HZ*4); //Keeping LED at its initial state(OFF state) for 4 second
 
-	while (1) {
-		Board_LED_Set(2, false);
-						/* About a 3Hz on/off toggle rate */
-						vTaskDelay(configTICK_RATE_HZ*2);
-		Board_LED_Set(2, true);
-				vTaskDelay(configTICK_RATE_HZ);
-				//LedState = (bool) !LedState;
+		Board_LED_Set(2, true);				//turning BLUE LED ON
+		vTaskDelay(configTICK_RATE_HZ);		//Keeping LED ON for 1 second
 
-
-
+		Board_LED_Set(2, false);			//Turning LED again OFF
+		vTaskDelay(configTICK_RATE_HZ);		//Keeping LED OFF for 1 second
 	}
 }
 
