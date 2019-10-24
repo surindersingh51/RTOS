@@ -47,7 +47,6 @@ static void vLEDTask1(void *pvParameters)
 {
 	while (1)
 	{
-		Board_LED_Set(1,false);
 		vTaskDelay(configTICK_RATE_HZ*2);	//Keeping LED at its initial state(OFF state) for 1 second
 
 		Board_LED_Set(1, true);				//turning Green LED ON
@@ -62,10 +61,9 @@ static void vLEDTask1(void *pvParameters)
 static void vLEDTask2(void *pvParameters)
 {
 	//bool true;
-
+	vTaskDelay(configTICK_RATE_HZ*6);
 	while (1)
 	{
-		Board_LED_Set(2,false);
 		vTaskDelay(configTICK_RATE_HZ*4); //Keeping LED at its initial state(OFF state) for 4 second
 
 		Board_LED_Set(2, true);				//turning BLUE LED ON
@@ -91,7 +89,7 @@ int main(void)
 
 	/* LED1 toggle thread */
 	xTaskCreate(vLEDTask0, (signed char *) "vTaskLed0",
-				configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3UL),
+				configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1UL),
 				(xTaskHandle *) NULL);
 
 	/* LED2 toggle thread */
@@ -101,7 +99,7 @@ int main(void)
 
 	/* UART output thread, simply counts seconds */
 	xTaskCreate(vLEDTask2, (signed char *) "vTaskLed2",
-				configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1UL),
+				configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3UL),
 				(xTaskHandle *) NULL);
 
 	/* Start the scheduler */
