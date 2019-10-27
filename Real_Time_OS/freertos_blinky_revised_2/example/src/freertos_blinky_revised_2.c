@@ -5,16 +5,17 @@
 #include "task.h"
 #include "semphr.h"
 
+xSemaphoreHandle	xMutex_led_blinky;
 
-struct LED
+struct LED_struct
 {
 	int led_num;
 };
-typedef struct LED led_struct;
+typedef struct LED_struct led_value;
 
-led_struct led_no[3];
+led_value led_no[3];
 
-xSemaphoreHandle	xMutex_led_blinky;
+
 
 /* sets up system hardware */
 static void prvSetupHardware(void)
@@ -43,8 +44,8 @@ static void vLEDBlinky(int num)
 
 static void vLEDTask(void *pvParameters)
 {
-	led_struct *led_para = (led_struct *)pvParameters;
-	int num = led_para -> led_num;
+	led_value *led_param = (led_value *)pvParameters;
+	int num = led_param -> led_num;
 
 	while (1)
 	{
@@ -66,7 +67,9 @@ int main(void)
 	led_no[0].led_num=0;
 	led_no[1].led_num=1;
 	led_no[2].led_num=2;
+
 	prvSetupHardware();
+
 	/* LED1 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed0",
 				configMINIMAL_STACK_SIZE,&led_no[0], (tskIDLE_PRIORITY + 3UL),
