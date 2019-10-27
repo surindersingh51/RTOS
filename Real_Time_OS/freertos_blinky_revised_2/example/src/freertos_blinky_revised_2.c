@@ -5,6 +5,15 @@
 #include "task.h"
 #include "semphr.h"
 
+
+struct LED
+{
+	int led_num;
+};
+typedef struct LED led_struct;
+
+led_struct led_no[3];
+
 xSemaphoreHandle	xMutex_led_blinky;
 
 /* sets up system hardware */
@@ -20,25 +29,26 @@ static void prvSetupHardware(void)
 }
 
 
-static void vLEDBlinky(int led_num)
+static void vLEDBlinky(int num)
 {
 	xSemaphoreTake(xMutex_led_blinky, portMAX_DELAY);
 	{
-		Board_LED_Set(led_num, true);
+		Board_LED_Set(num, true);
 		vTaskDelay(configTICK_RATE_HZ);
-		Board_LED_Set(led_num, false);
+		Board_LED_Set(num, false);
+		vTaskDelay(configTICK_RATE_HZ*2);
 	}
 	xSemaphoreGive(xMutex_led_blinky);
 }
 
 static void vLEDTask(void *pvParameters)
 {
-	int *led_num = (int *) pvParameters;
+	led_struct *led_para = (led_struct *)pvParameters;
+	int num = led_para -> led_num;
 
 	while (1)
 	{
-		vLEDBlinky(*led_num);
-		vTaskDelay(configTICK_RATE_HZ*2);
+		vLEDBlinky(num);
 	}
 }
 
@@ -52,21 +62,24 @@ static void vLEDTask(void *pvParameters)
  */
 int main(void)
 {
-	prvSetupHardware();
 
+	led_no[0].led_num=0;
+	led_no[1].led_num=1;
+	led_no[2].led_num=2;
+	prvSetupHardware();
 	/* LED1 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed0",
-				configMINIMAL_STACK_SIZE, 0, (tskIDLE_PRIORITY + 3UL),
+				configMINIMAL_STACK_SIZE,&led_no[0], (tskIDLE_PRIORITY + 3UL),
 				(xTaskHandle *) NULL);
 
 	/* LED2 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed1",
-				configMINIMAL_STACK_SIZE, 1, (tskIDLE_PRIORITY + 2UL),
+				configMINIMAL_STACK_SIZE,&led_no[1], (tskIDLE_PRIORITY + 2UL),
 				(xTaskHandle *) NULL);
 
 	/* LED3 toggle thread */
 	xTaskCreate(vLEDTask, (signed char *) "vTaskLed2",
-				configMINIMAL_STACK_SIZE, 2, (tskIDLE_PRIORITY + 1UL),
+				configMINIMAL_STACK_SIZE,&led_no[2], (tskIDLE_PRIORITY + 1UL),
 				(xTaskHandle *) NULL);
 
 	/* Start the scheduler */
