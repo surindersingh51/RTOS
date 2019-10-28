@@ -1,0 +1,4 @@
+HIDParser.c:38:9:USB_ProcessHIDReport	208	static
+HIDParser.c:291:6:USB_GetHIDReportItemInfo	24	static
+HIDParser.c:324:6:USB_SetHIDReportItemInfo	24	static
+HIDParser.c:352:10:USB_GetHIDReportSize	24	static

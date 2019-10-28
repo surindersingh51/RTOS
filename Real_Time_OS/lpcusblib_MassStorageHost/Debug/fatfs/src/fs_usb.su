@@ -1,0 +1,5 @@
+fs_usb.c:61:9:disk_initialize	16	static
+fs_usb.c:97:9:disk_ioctl	24	static
+fs_usb.c:141:9:disk_read	24	static
+fs_usb.c:158:9:disk_status	16	static
+fs_usb.c:167:9:disk_write	24	static

@@ -1,0 +1,4 @@
+USBController.c:40:6:USB_Init	16	static
+USBController.c:55:6:USB_Disable	16	static
+USBController.c:82:6:USB_ResetInterface	16	static
+USBController.c:124:13:USB_Init_Host	16	static

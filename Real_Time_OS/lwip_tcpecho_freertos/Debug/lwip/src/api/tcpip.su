@@ -1,0 +1,13 @@
+tcpip.c:74:1:tcpip_thread	24	static
+tcpip.c:161:1:tcpip_input	24	static
+tcpip.c:211:1:tcpip_callback_with_block	32	static
+tcpip.c:247:1:tcpip_timeout	32	static
+tcpip.c:276:1:tcpip_untimeout	24	static
+tcpip.c:306:1:tcpip_apimsg	40	static
+tcpip.c:408:28:tcpip_callbackmsg_new	24	static
+tcpip.c:425:6:tcpip_callbackmsg_delete	16	static
+tcpip.c:438:1:tcpip_trycallback	16	static
+tcpip.c:455:1:tcpip_init	24	static
+tcpip.c:480:1:pbuf_free_int	24	static
+tcpip.c:493:1:pbuf_free_callback	16	static
+tcpip.c:506:1:mem_free_callback	16	static

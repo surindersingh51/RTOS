@@ -1,0 +1,11 @@
+HIDClassHost.c:43:9:HID_Host_ConfigurePipes	88	static
+HIDClassHost.c:160:16:DCOMP_HID_Host_NextHIDInterface	24	static
+HIDClassHost.c:175:16:DCOMP_HID_Host_NextHIDDescriptor	24	static
+HIDClassHost.c:187:16:DCOMP_HID_Host_NextHIDInterfaceEndpoint	24	static
+HIDClassHost.c:207:9:HID_Host_ReceiveReportByID	40	static
+HIDClassHost.c:227:9:HID_Host_ReceiveReport	48	static
+HIDClassHost.c:269:9:HID_Host_SendReportByID	40	static
+HIDClassHost.c:322:6:HID_Host_IsReportReceived	24	static
+HIDClassHost.c:340:9:HID_Host_SetBootProtocol	24	static
+HIDClassHost.c:368:9:HID_Host_SetIdlePeriod	24	static
+HIDClassHost.c:387:9:HID_Host_SetReportProtocol	40	dynamic

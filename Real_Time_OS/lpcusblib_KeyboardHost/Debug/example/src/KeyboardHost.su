@@ -1,0 +1,10 @@
+HIDClassHost.h:291:23:HID_Host_USBTask	16	static
+KeyboardHost.c:65:13:KeyboardHost_Task	24	static
+KeyboardHost.c:108:13:SetupHardware	8	static
+KeyboardHost.c:128:5:main	8	static
+KeyboardHost.c:145:6:EVENT_USB_Host_DeviceAttached	16	static
+KeyboardHost.c:152:6:EVENT_USB_Host_DeviceUnattached	16	static
+KeyboardHost.c:160:6:EVENT_USB_Host_DeviceEnumerationComplete	544	static
+KeyboardHost.c:197:6:EVENT_USB_Host_HostError	16	static
+KeyboardHost.c:211:6:EVENT_USB_Host_DeviceEnumerationFailed	32	static
+KeyboardHost.c:224:6:CALLBACK_HIDParser_FilterHIDReportItem	16	static

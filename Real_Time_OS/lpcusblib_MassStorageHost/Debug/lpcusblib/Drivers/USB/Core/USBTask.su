@@ -1,0 +1,2 @@
+USBTask.c:52:6:USB_USBTask	16	static
+USBTask.c:84:13:USB_HostTask	24	static

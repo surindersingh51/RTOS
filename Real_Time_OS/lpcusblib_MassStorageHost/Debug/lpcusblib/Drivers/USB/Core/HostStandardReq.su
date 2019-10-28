@@ -1,0 +1,7 @@
+HostStandardReq.c:45:9:USB_Host_SendControlRequest	40	static
+HostStandardReq.c:224:9:USB_Host_SetDeviceConfiguration	24	static
+HostStandardReq.c:248:9:USB_Host_GetDeviceDescriptor	24	static
+HostStandardReq.c:264:9:USB_Host_GetDeviceStringDescriptor	24	static
+HostStandardReq.c:283:9:USB_Host_GetDeviceStatus	24	static
+HostStandardReq.c:299:9:USB_Host_ClearEndpointStall	24	static
+HostStandardReq.c:315:9:USB_Host_SetInterfaceAltSetting	24	static

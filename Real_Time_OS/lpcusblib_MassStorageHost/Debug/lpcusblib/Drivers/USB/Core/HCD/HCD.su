@@ -1,0 +1,3 @@
+HCD.c:63:7:HcdDelayUS	24	static
+HCD.c:71:7:HcdDelayMS	24	static
+HCD.c:79:12:OpenPipe_VerifyParameters	24	static

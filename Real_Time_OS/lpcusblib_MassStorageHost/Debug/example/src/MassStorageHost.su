@@ -1,0 +1,17 @@
+MassStorageHost.c:71:13:die	16	static
+MassStorageHost.c:80:13:SetupHardware	8	static
+MassStorageHost.c:91:13:USB_ReadWriteFile	144	static
+MassStorageHost.c:191:5:main	8	static
+MassStorageHost.c:206:6:EVENT_USB_Host_DeviceAttached	16	static
+MassStorageHost.c:214:6:EVENT_USB_Host_DeviceUnattached	16	static
+MassStorageHost.c:222:6:EVENT_USB_Host_DeviceEnumerationComplete	600	static
+MassStorageHost.c:286:6:EVENT_USB_Host_HostError	16	static
+MassStorageHost.c:300:6:EVENT_USB_Host_DeviceEnumerationFailed	32	static
+MassStorageHost.c:314:16:FSUSB_DiskInit	4	static
+MassStorageHost.c:320:5:FSUSB_DiskInsertWait	24	static
+MassStorageHost.c:330:5:FSUSB_DiskAcquire	24	static
+MassStorageHost.c:360:10:FSUSB_DiskGetSectorCnt	16	static
+MassStorageHost.c:366:10:FSUSB_DiskGetSectorSz	16	static
+MassStorageHost.c:372:5:FSUSB_DiskReadSectors	32	static
+MassStorageHost.c:383:5:FSUSB_DiskWriteSectors	32	static
+MassStorageHost.c:393:5:FSUSB_DiskReadyWait	24	static

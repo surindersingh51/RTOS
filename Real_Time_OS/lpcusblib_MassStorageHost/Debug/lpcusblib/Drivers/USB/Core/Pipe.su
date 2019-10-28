@@ -1,0 +1,6 @@
+Pipe.c:45:6:Pipe_ConfigurePipe	56	static
+Pipe.c:83:6:Pipe_ClosePipe	16	static
+Pipe.c:94:6:Pipe_ClearPipes	4	static
+Pipe.c:97:6:Pipe_IsEndpointBound	16	static
+Pipe.c:102:9:Pipe_WaitUntilReady	24	static
+Pipe.c:137:6:Pipe_IsINReceived	32	static

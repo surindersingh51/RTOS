@@ -1,0 +1,4 @@
+rtc.c:19:5:rtc_initialize	40	static
+rtc.c:47:5:rtc_gettime	48	static
+rtc.c:63:5:rtc_settime	48	static
+rtc.c:87:7:get_fattime	16	static

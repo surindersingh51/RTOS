@@ -1,0 +1,6 @@
+ConfigDescriptor.h:264:23:USB_GetNextDescriptor	24	static
+ConfigDescriptor.c:37:9:USB_Host_GetDeviceConfigDescriptor	40	static
+ConfigDescriptor.c:78:6:USB_GetNextDescriptorOfType	24	static
+ConfigDescriptor.c:91:6:USB_GetNextDescriptorOfTypeBefore	24	static
+ConfigDescriptor.c:112:6:USB_GetNextDescriptorOfTypeAfter	24	static
+ConfigDescriptor.c:123:9:USB_GetNextDescriptorComp	32	static

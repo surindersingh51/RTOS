@@ -1,0 +1,3 @@
+USBMemory.c:86:6:USB_Memory_Init	24	static
+USBMemory.c:99:10:USB_Memory_Alloc	32	static
+USBMemory.c:213:6:USB_Memory_Free	32	static

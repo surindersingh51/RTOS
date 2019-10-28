@@ -1,0 +1,13 @@
+PipeStream.c:39:9:Pipe_Discard_Stream	32	static
+PipeStream.c:80:9:Pipe_Null_Stream	24	static
+PipeStream.c:96:9:Pipe_Write_Stream_LE	32	static
+PipeStream.c:116:9:Pipe_Read_Stream_LE	48	static
+PipeStream.c:156:9:Pipe_Write_Stream_BE	24	static
+PipeStream.c:163:9:Pipe_Read_Stream_BE	24	static
+PipeStream.c:170:9:Pipe_Write_PStream_LE	24	static
+PipeStream.c:177:9:Pipe_Write_PStream_BE	24	static
+PipeStream.c:184:9:Pipe_Write_EStream_LE	24	static
+PipeStream.c:191:9:Pipe_Write_EStream_BE	24	static
+PipeStream.c:198:9:Pipe_Read_EStream_LE	24	static
+PipeStream.c:205:9:Pipe_Read_EStream_BE	24	static
+PipeStream.c:212:9:Pipe_Streaming	32	static
