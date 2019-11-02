@@ -3,9 +3,6 @@
  *
  * 		queue data structure demonstrator code
  * 		(main queue functions and data types are found in queue_lib library)
- *
- *  Created on: Oct. 30, 2019
- *      Author: takis
  */
 
 #include <stdlib.h>
@@ -101,12 +98,12 @@ int main()
     /* create threads */
     if (pthread_create(&thread_sender, NULL, &funcTx, (void *) pqm)!=0)
     {
-    	printf("Failed to create the thread\n");
+    	printf("Failed to create the thread for sender\n");
     	return 1;
     }
     if (pthread_create(&thread_receiver, NULL, &funcRx, (void *) pqm)!=0)
     {
-    	printf("Failed to create the thread\n");
+    	printf("Failed to create the thread for receiver\n");
     	return 1;
     }
 
