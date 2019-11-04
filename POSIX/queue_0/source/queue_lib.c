@@ -1,9 +1,4 @@
-/*
- * q0.c
- *
- *  Created on: Oct. 30, 2019
- *      Author: takis
- */
+
 
 #include <stdlib.h>
 #include "queue_lib.h"
