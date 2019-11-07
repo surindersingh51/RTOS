@@ -1,5 +1,6 @@
 /* @brief FreeRTOS Blinky example
  A Simple Blinking Code with just using delays to alternatively blinking all 3 LEDs */
+/*author: alpit*/
 #include "board.h"
 #include "FreeRTOS.h"
 #include "task.h"
