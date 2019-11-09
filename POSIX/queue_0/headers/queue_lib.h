@@ -1,8 +1,5 @@
 /*
  * q0.c
- *
- *  Created on: Oct. 30, 2019
- *      Author: takis
  */
 #ifndef HEADERS_QUEUE_LIB_H_
 #define HEADERS_QUEUE_LIB_H_
