@@ -48,5 +48,5 @@ int main() {
     pthread_join(thread, &result);   // allow the pthread to complete
     int *z = (int *) result;         // cast from void* to int* to get z
     printf("Final: x=%d, y=%d and z=%d\n",x,y,*z);
-    return EXIT_SUCCESS;
+       return EXIT_SUCCESS;
 }
